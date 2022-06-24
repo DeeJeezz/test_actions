@@ -31,3 +31,10 @@ jobs:
           source: "deploy/docker-compose.yaml"
           target: "test_app"
           strip_components: 1
+      - name: run
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: docker-compose up -d
