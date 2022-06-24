@@ -31,8 +31,6 @@ jobs:
           source: "deploy/docker-compose.yaml"
           target: "test_app"
           strip_components: 1
-      - name: login
-        run: docker login -u ${{ secrets.DOCKER_NAME }} -p ${{ secrets.DOCKER_TOKEN }}
       - name: run
         uses: appleboy/ssh-action@master
         with:
@@ -41,4 +39,5 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd test_app
+            docker login -u ${{ secrets.DOCKER_NAME }} -p ${{ secrets.DOCKER_TOKEN }}
             docker-compose up -d
