@@ -37,4 +37,6 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          script: docker-compose up -d
+          script: |
+            cd test_app
+            docker-compose up -d
