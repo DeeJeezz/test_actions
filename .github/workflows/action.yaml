@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: clone
+        uses: actions/checkout@v2
       - name: build
         run: docker build -t ${{ secrets.DOCKER_NAME }}/skypro:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
       - name: login
