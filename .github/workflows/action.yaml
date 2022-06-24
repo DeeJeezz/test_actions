@@ -31,4 +31,3 @@ jobs:
           source: "deploy/docker-compose.yaml"
           target: "/test_app"
           strip_components: 1
-      - name:
